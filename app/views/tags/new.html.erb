@@ -1,0 +1,10 @@
+<div class="">
+  <div class="">
+    <h3>タグを作成する</h3>
+    <%= form_with(model: @tag, local: true) do |form| %>
+      <%= form.text_field :text_tag, placeholder: "tag" %>
+      <%= form.text_field :text_memo, placeholder: "memo" %>
+      <%= form.submit "MAKE" %>
+    <% end %>
+  </div>
+</div>
