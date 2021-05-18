@@ -1,0 +1,22 @@
+<!-- current_userが作成したTag一覧表示 -->
+<div class="">
+  <p><%= @nickname %>さんのTag一覧</p>
+  <% @tags.each do |tag| %>
+    <div class="" style="">
+      <p><%= tag.text_tag %></p>
+      <span class="">
+      </span>
+    </div>
+    <li>
+      <%= link_to '詳細', tag_path(tag.id), method: :get %>
+    </li>
+    <% if user_signed_in? && current_user.id == tag.user_id %>
+      <li>
+        <%= link_to '編集', edit_tag_path(tag.id), method: :get %>
+      </li>
+      <li>
+        <%= link_to '削除', tag_path(tag.id), method: :delete %>
+      <li>
+    <% end %>
+  <% end %>
+</div>
