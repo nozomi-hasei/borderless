@@ -8,12 +8,7 @@ class TagsController < ApplicationController
   end
 
   def create
-    Tag.create(tag_params)
-  end
-
-  def destroy
-    tag = Tag.find(params[:id])
-    tag.destroy
+    @tag = Tag.create(tag_params)
   end
 
   private
