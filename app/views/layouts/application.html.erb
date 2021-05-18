@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Borderless</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title> Borderless</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+  
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header class="">
-      <div class="">
-        <h1 class=""><a href="/">Borderless</a></h1>
-        <div class="">
-          <a class="post" href="/tags/new">POST</a>
-        </div>
+    <header class="header">
+      <h1 class="title"><a href="/">Borderless</a></h1>
+        <div class="header2">
+          <div class="user_in_out">
+            <!-- ログイン有無の条件分岐 -->
+            <% if user_signed_in? %>
+              <%= link_to current_user.nickname, edit_user_registration_path %>
+              <%= link_to 'My Tag', user_path(current_user.id), method: :get %>
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+            <% else %>
+              <%= link_to 'ログイン', new_user_session_path %>
+              <%= link_to '新規登録', new_user_registration_path %>
+            <% end %>
+          </div>
+          <div class="">
+            <a class="post" href="/tags/new">POST</a>
+          </div>
       </div>
     </header>
     <%= yield %>
-    <footer>
+    <footer class="footer">
       <%= link_to "Back", :back %>
-      <p>
+      <p class="footer2">
         Copyright Borderless 2021.
       </p>
     </footer>
   </body>
 </html>
+

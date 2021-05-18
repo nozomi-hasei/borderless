@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   before_action :find_params, only: [:edit, :show]
 
   def index
-    @tags = Tag.all
+    @tags = Tag.includes(:user).order("created_at DESC")
   end
 
   def new
