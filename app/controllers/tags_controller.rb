@@ -16,6 +16,15 @@ class TagsController < ApplicationController
     tag.destroy
   end
 
+  def edit
+    @tag = Tag.find(params[:id])
+  end
+
+  def update
+    tag = Tag.find(params[:id])
+    tag.update(tag_params)
+  end
+
   private
   def tag_params
     params.require(:tag).permit(:text_tag, :text_memo)

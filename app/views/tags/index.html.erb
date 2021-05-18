@@ -6,6 +6,9 @@
       <span class="">
       </span>
     </div>
-    <%= link_to '削除', tag_path(tag.id), method: :delete %>
+    <li>
+      <%= link_to '編集', edit_tag_path(tag.id), method: :get %>
+      <%= link_to '削除', tag_path(tag.id), method: :delete %>
+    </li>
   <% end %>
 </div>
