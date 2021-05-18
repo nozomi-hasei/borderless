@@ -1,12 +1,15 @@
 <div class="">
+  <!-- ログイン有無の条件分岐 -->
   <% if user_signed_in? %>
     <%= link_to current_user.nickname, edit_user_registration_path %>
+    <%= link_to 'My Tag', user_path(current_user.id), method: :get %>
     <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
   <% else %>
     <%= link_to 'ログイン', new_user_session_path %>
     <%= link_to '新規登録', new_user_registration_path %>
   <% end %>
 </div>
+<!-- 投稿タグ一覧 -->
 <div class="">
   <% @tags.each do |tag| %>
     <div class="" style="">
@@ -14,6 +17,9 @@
       <span class="">
       </span>
     </div>
+    <a href="/users/<%= tag.user.id %>">
+      <span>投稿者 </span><%= tag.user.nickname %>
+    </a>
     <li>
       <%= link_to '詳細', tag_path(tag.id), method: :get %>
       <%= link_to '編集', edit_tag_path(tag.id), method: :get %>

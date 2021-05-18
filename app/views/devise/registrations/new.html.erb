@@ -1,5 +1,6 @@
 <h2>Sign up</h2>
 
+<!-- 新規登録フォーム -->
 <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="field">
@@ -39,5 +40,5 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
+<%= link_to "Back", :back %>
 <%= render "devise/shared/links" %>
