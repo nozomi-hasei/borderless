@@ -1,10 +1,7 @@
-<div class="">
-  <%= form_with(url: search_tags_path, local: true, method: :get, class: "") do |form| %>
-    <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "" %>
-    <%= form.submit "検索", class: "" %>
-  <% end %>
-</div>
-<!-- 投稿タグ一覧 -->
+<%= form_with(url: search_tags_path, local: true, method: :get, class: "") do |form| %>
+  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "" %>
+  <%= form.submit "検索", class: "" %>
+<% end %>
 <div class="">
   <% @tags.each do |tag| %>
     <div class="" style="">
@@ -16,7 +13,7 @@
       <span>投稿者 </span><%= tag.user.nickname %>
     </a>
     <li>
-    <%= link_to '詳細', tag_path(tag.id), method: :get %>
+      <%= link_to '詳細', tag_path(tag.id), method: :get %>
     </li>
     <% if user_signed_in? && current_user.id == tag.user_id%>
       <li>

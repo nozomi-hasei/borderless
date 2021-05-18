@@ -29,6 +29,10 @@ class TagsController < ApplicationController
   def show
   end
 
+  def search
+    @tags = Tag.search(params[:keyword])
+  end
+
   private
   def tag_params
     params.require(:tag).permit(:text_tag, :text_memo).merge(user_id: current_user.id)
