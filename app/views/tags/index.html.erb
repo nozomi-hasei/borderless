@@ -21,9 +21,15 @@
       <span>投稿者 </span><%= tag.user.nickname %>
     </a>
     <li>
-      <%= link_to '詳細', tag_path(tag.id), method: :get %>
-      <%= link_to '編集', edit_tag_path(tag.id), method: :get %>
-      <%= link_to '削除', tag_path(tag.id), method: :delete %>
+    <%= link_to '詳細', tag_path(tag.id), method: :get %>
     </li>
+    <% if user_signed_in? && current_user.id == tag.user_id%>
+      <li>
+        <%= link_to '編集', edit_tag_path(tag.id), method: :get %>
+      </li>
+      <li>
+        <%= link_to '削除', tag_path(tag.id), method: :delete %>
+      </li>
+    <% end %>
   <% end %>
 </div>
