@@ -30,15 +30,16 @@
 <!-- 案件チャット機能 -->
 ## projects テーブル
 
-| Column      | Type        | Options    |
-| ----------  | ----------  | ---------- |
-| main_title  | string      | null:false |
-| start_date  | string      | null:false |
-| finish_date | string      | null:false |
-| department  | string      | null:false |
-| category    | string      | null:false |
-| image       | null        |            |
-| user        | references  |            |
+| Column       | Type       | Options    |
+| ------------ | ---------- | ---------- |
+| main_title   | string     | null:false |
+| start_date   | string     | null:false |
+| finish_date  | string     | null:false |
+| department   | string     | null:false |
+| category     | string     | null:false |
+| project_memo | string     | null:false |
+| image        | null       |            |
+| user         | references |            |
 
 ### Association
 
