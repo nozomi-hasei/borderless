@@ -7,24 +7,26 @@
 <!-- 投稿タグ一覧 -->
 <div class="">
   <% @tags.each do |tag| %>
-    <div class="" style="">
-      <p><%= tag.text_tag %></p>
-      <span class="">
-      </span>
+    <div class="tag">
+      <div class="" style="">
+        <p><%= tag.text_tag %></p>
+        <span class="">
+        </span>
+      </div>
+      <a href="/users/<%= tag.user.id %>">
+        <span>投稿者 </span><%= tag.user.nickname %>
+      </a>
+      <li>
+      <%= link_to '詳細', tag_path(tag.id), method: :get %>
+      </li>
+      <% if user_signed_in? && current_user.id == tag.user_id%>
+        <li>
+          <%= link_to '編集', edit_tag_path(tag.id), method: :get %>
+        </li>
+        <li>
+          <%= link_to '削除', tag_path(tag.id), method: :delete %>
+        </li>
+      <% end %>
     </div>
-    <a href="/users/<%= tag.user.id %>">
-      <span>投稿者 </span><%= tag.user.nickname %>
-    </a>
-    <li>
-    <%= link_to '詳細', tag_path(tag.id), method: :get %>
-    </li>
-    <% if user_signed_in? && current_user.id == tag.user_id%>
-      <li>
-        <%= link_to '編集', edit_tag_path(tag.id), method: :get %>
-      </li>
-      <li>
-        <%= link_to '削除', tag_path(tag.id), method: :delete %>
-      </li>
-    <% end %>
   <% end %>
 </div>

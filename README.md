@@ -12,55 +12,50 @@
 
 ### Association
 
-- has_many :room_users
+- has_many :tags
 
 <!-- タグ付け機能 -->
 ## tags　テーブル
 
-| Column             | Type        | Options                      |
-| ------------------ | ---------- | ------------------------------|
-| text_tag           | string     | null:false                    |
-| text_memo          | string     | null:false                    |
-| user               | references | null:false, foreign_key: true |
+| Column     | Type       | Options                       |
+| ---------- | ---------- | ------------------------------|
+| text_tag   | string     | null:false                    |
+| text_memo  | string     | null:false                    |
+| user       | references | null:false, foreign_key: true |
 ### Association
+
+- belongs_to :user
 
 
 <!-- 案件チャット機能 -->
-## rooms　テーブル
+## projects テーブル
 
-| Column             | Type   | Options                 |
-| ------------------ | ------ | ------------------------|
-| project_title      | string | null:false              |
-| memo               | string | null:false              |
-
-### Association
-
-- has_many :room_users
-- has_many :users, through: room_users
-- has_many :messages
-
-## messages　テーブル
-
-| Column              | Type       | Options                                   |
-| ------------------- | ---------- | ------------------------------------------|
-| content             | string     | null:false                                |
-| user                | references | null:false, foreign_key:true              |
-| room                | references | null:false, foreign_key:true              |
+| Column      | Type        | Options    |
+| ----------  | ----------  | ---------- |
+| main_title  | string      | null:false |
+| start_date  | string      | null:false |
+| finish_date | string      | null:false |
+| department  | string      | null:false |
+| category    | string      | null:false |
+| image       | null        |            |
+| user        | references  |            |
 
 ### Association
 
-- belongs_to :room
+- belongs_to :users
+- has_many :comments
+
+
+## comments テーブル
+
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| text_comment | string     | null:false                     |
+| user         | references | null: false, foreign_key: true |
+| project      | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :project
 - belongs_to :user
-
-## room_users　テーブル
-
-| Column                      | Type       | Options                                   |
-| --------------------------- | ---------- | ------------------------------------------|
-| user                        | references | null:false, foreign_key:true              |
-| room                        | references | null:false, foreign_key:true              |
-
-### Association
-
-- belongs_to :user
-- belongs_to :room
 

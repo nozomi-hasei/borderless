@@ -11,7 +11,7 @@
 
   <body>
     <header class="header">
-      <h1 class="title"><a href="/">Borderless</a></h1>
+      <div class="title" href="/">Borderless</div>
         <div class="header2">
           <div class="user_in_out">
             <!-- ログイン有無の条件分岐 -->
@@ -30,11 +30,11 @@
       </div>
     </header>
     <%= yield %>
+    <%= link_to 'back', :back %>
     <footer class="footer">
-      <%= link_to "Back", :back %>
-      <p class="footer2">
+      <div class="footer2">
         Copyright Borderless 2021.
-      </p>
+      </div>
     </footer>
   </body>
 </html>
