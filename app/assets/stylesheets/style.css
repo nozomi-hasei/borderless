@@ -81,6 +81,8 @@ a {
   background-color: white;
 }
 
+
+
 /* 検索欄 */
 
 
@@ -94,8 +96,6 @@ a {
 }
 
 /* プロジェクト一覧 */
-.card__wrapper {
-}
 .card {
   background-color: rgb(244, 242, 239);
   display: flex;
@@ -107,4 +107,17 @@ a {
 .card__img {
   margin-bottom: 16px;
   width: calc((100% - 50px) / 3);
+}
+
+p,
+label {
+  font: 1rem 'Fira Sans', sans-serif;
+}
+
+input {
+  margin: .4rem;
+}
+
+.color {
+  margin: .4rem;
 }

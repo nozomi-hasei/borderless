@@ -37,7 +37,7 @@ class TagsController < ApplicationController
 
   private
   def tag_params
-    params.require(:tag).permit(:text_tag, :text_memo).merge(user_id: current_user.id)
+    params.require(:tag).permit(:text_tag, :text_memo, :color).merge(user_id: current_user.id)
   end
 
   def find_params
