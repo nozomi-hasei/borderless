@@ -1,11 +1,14 @@
+<!--検索欄 -->
 <div class="">
   <%= form_with(url: search_tags_path, local: true, method: :get, class: "") do |form| %>
     <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "" %>
     <%= form.submit "検索", class: "" %>
   <% end %>
 </div>
+
 <!-- 投稿タグ一覧 -->
 <div class="">
+  <p>タグ一覧</p>
   <% @tags.each do |tag| %>
     <div class="tag">
       <div class="" style="">
@@ -29,4 +32,21 @@
       <% end %>
     </div>
   <% end %>
+</div>
+
+<!-- プロジェクト一覧 -->
+<div class="card_wrapper">
+  <p>プロジェクト一覧</p>
+  <div class="card">
+    <% @projects.each do |project| %>
+      <p><%= project.main_title %></p>
+      <%= link_to image_tag(project.image), class: :img %>
+      <p><%= project.start_date %></p>
+      <p><%= project.finish_date %></p>
+      <p><%= project.department %></p>
+      <p><%= project.category %></p>
+      <p><%= project.project_memo %></p>
+      <p><%= project.user.nickname %></p>
+    <% end %>
+  </div>
 </div>

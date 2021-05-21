@@ -1,3 +1,41 @@
+/* リセットCSS */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+ul,
+li,
+h1,
+h2,
+p,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
+  color: #3b4043;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 300px;
+  max-height: 400px;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+  color: #3b4043;
+}
+
+
 /* application.html.erb */
 .header {
   background-color: beige;
@@ -46,4 +84,20 @@
 /* タグ */
 .tag {
   background-color: rgb(244, 242, 239);
+}
+
+/* プロジェクト一覧 */
+.card__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: calc(100vh - 161px);
+}
+.card {
+  background-color: rgb(244, 242, 239);
+}
+.card__img {
+  margin-bottom: 16px;
+  width: calc((100% - 50px) / 3);
 }

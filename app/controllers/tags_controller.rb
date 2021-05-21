@@ -3,6 +3,7 @@ class TagsController < ApplicationController
 
   def index
     @tags = Tag.includes(:user).order("created_at DESC")
+    @projects = Project.includes(:user).order("created_at DESC")
   end
 
   def new
