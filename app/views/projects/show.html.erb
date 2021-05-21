@@ -30,4 +30,28 @@
       </ul>
     </div>
   </div>
+  <!-- コメント投稿欄 -->
+  <div class="prototype__comments">
+    <% if current_user %>
+      <%= form_with(model: [@project,@comment],local: true) do |f| %>
+        <div class="field">
+          <%= f.label :text_comment, "コメント" %><br />
+          <%= f.text_field :text_comment %>
+        </div>
+        <div class="actions">
+          <%= f.submit "送信する", class: :form__btn  %>
+        </div>
+      <% end %> 
+    <% end %>
+    <% if @comments%>
+      <ul class="comments_lists">
+        <% @comments.each do |comment| %>
+        <li class="comments_list">
+          <%= comment.text_comment %>
+          <%= link_to comment.user.nickname, user_path(comment.user) %>
+        </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>
