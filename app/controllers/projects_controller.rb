@@ -16,6 +16,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def show
+    @project = Project.find(params[:id])
+  end
+
   private
   def project_params
     params.require(:project).permit(:main_title, :start_date, :finish_date, :department, :category, :project_memo, :image).merge(user_id: current_user.id)

@@ -1,0 +1,25 @@
+<!-- プロジェクト詳細 -->
+<div class="card_wrapper">
+  <p>【プロジェクト名】: <%= link_to "#{@project.main_title}", projects_path(@project.id) %></p>
+  <div class="card">
+    <%= link_to image_tag(@project.image), class: :img %>
+    <div>
+      <p>【開始日】: <%= link_to "#{@project.start_date}", projects_path(@project.id) %></p>
+      <p>【終了日】: <%= link_to "#{@project.finish_date}",projects_path(@project.id) %></p>
+      <ul>
+        <li>
+          <p>【担当部署】: <%= link_to "#{@project.department}", projects_path(@project.id) %></p>
+        </li>
+        <li>
+          <p>【カテゴリー】: <%= link_to "#{@project.category}", projects_path(@project.id) %></p>
+        </li>
+        <li>
+          <p>【内容】: <%= link_to "#{@project.project_memo}", projects_path(@project.id) %></p>
+        </li>
+        <li>
+          <%= link_to "by.#{@project.user.nickname}", user_path(@project.user) %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
