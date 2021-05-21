@@ -18,6 +18,14 @@
         </li>
         <li>
           <%= link_to "by.#{@project.user.nickname}", user_path(@project.user) %>
+          <% if user_signed_in? && current_user.id == @project.user_id%>
+            <li>
+              <%= link_to '【編集】', edit_project_path(@project.id), method: :get %>
+            </li>
+            <li>
+              <%= link_to '【削除】', project_path(@project.id), method: :delete %>
+            </li>
+          <% end %>
         </li>
       </ul>
     </div>

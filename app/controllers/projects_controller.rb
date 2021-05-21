@@ -16,8 +16,31 @@ class ProjectsController < ApplicationController
     end
   end
 
+  
   def show
     @project = Project.find(params[:id])
+  end
+
+  def edit
+    @project = Project.find(params[:id])
+    unless current_user = @project.user
+      redirect_to root_path
+    end
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update(project_params)
+      redirect_to project_path(@project)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+    redirect_to root_path
   end
 
   private

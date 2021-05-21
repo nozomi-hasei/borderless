@@ -5,6 +5,7 @@ class Project < ApplicationRecord
   validates :department,      presence: true
   validates :category,        presence: true
   validates :project_memo,    presence: true
+  validates :image,           presence: :true
   
   belongs_to :user
   has_many :comments
