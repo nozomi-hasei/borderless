@@ -35,7 +35,7 @@
     <% if current_user %>
       <%= form_with(model: [@project,@comment],local: true) do |f| %>
         <div class="field">
-          <%= f.label :text_comment, "コメント" %><br />
+          <%= f.label :text_comment, "<コメント欄>" %><br />
           <%= f.text_field :text_comment %>
         </div>
         <div class="actions">
@@ -48,7 +48,7 @@
         <% @comments.each do |comment| %>
         <li class="comments_list">
           <%= comment.text_comment %>
-          <%= link_to comment.user.nickname, user_path(comment.user) %>
+          <p>by.<%= link_to comment.user.nickname, user_path(comment.user) %>
         </li>
         <% end %>
       </ul>

@@ -1,16 +1,19 @@
-<!-- current_userが作成したTag一覧表示 -->
-<div class="">
+<!-- current_userページ -->
+<div class="header2">
+  <%= link_to "【New Tag】", new_tag_path %>
+  <%= link_to "【New project】", new_project_path %>
+</div>
+
+<div class="tag-main">
   <p><%= @nickname %>さんのTag一覧</p>
   <% @tags.each do |tag| %>
     <div style="background-color:<%= tag.color %>">
-      <p><%= tag.text_tag %></p>
-      <p><%= tag.text_memo %></p>
-      <span class="">
-      </span>
+      <p>＃<%= tag.text_tag %></p>
+      <p>【Memo】<%= tag.text_memo %></p>
+      <% if user_signed_in? && current_user.id == tag.user_id %>
+        <%= link_to '編集', edit_tag_path(tag.id), method: :get %>
+        <%= link_to '削除', tag_path(tag.id), method: :delete %>
+      <% end %>
     </div>
-    <li>
   <% end %>
-  <div>
-
-  <%= link_to current_user.nickname, edit_user_registration_path %>
 </div>

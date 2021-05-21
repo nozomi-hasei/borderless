@@ -1,5 +1,5 @@
 <!--検索欄 -->
-<div class="">
+<div class="header2">
   <%= form_with(url: search_tags_path, local: true, method: :get, class: "") do |form| %>
     <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "" %>
     <%= form.submit "検索", class: "" %>
@@ -7,44 +7,29 @@
 </div>
 
 <!-- 投稿タグ一覧 -->
-<div class="">
-  <p>タグ一覧</p>
-  <% @tags.each do |tag| %>
-    <div class="tag">
-      <div class="" style="">
-        <p>＃<%= tag.text_tag %></p>
-        <span class="">
-        </span>
+<div class="tag-main">
+  <p><タグ一覧></p>
+  <div class="tag-sub">
+    <% @tags.each do |tag| %>
+      <div style="background-color:<%= tag.color %>">
+        <p>＃<%= link_to tag.text_tag, tag_path(tag.id) %></p>
       </div>
-      <a href="/users/<%= tag.user.id %>">
-        <span>【投稿者】 </span><%= tag.user.nickname %>
-      </a>
-      <li>
-      <%= link_to '【詳細】', tag_path(tag.id), method: :get %>
-      </li>
-      <% if user_signed_in? && current_user.id == tag.user_id%>
-        <li>
-          <%= link_to '【編集】', edit_tag_path(tag.id), method: :get %>
-        </li>
-        <li>
-          <%= link_to '【削除】', tag_path(tag.id), method: :delete %>
-        </li>
-      <% end %>
-    </div>
-  <% end %>
+      <p>by.<%= link_to tag.user.nickname, user_path(tag.user.id), method: :get %></p>
+    <% end %>
+  </div>
 </div>
 
 <!-- プロジェクト一覧 -->
 <div class="">
-  <p>プロジェクト一覧</p>
+  <p><プロジェクト一覧></p>
   <div class="card">
     <% @projects.each do |project| %>
       <div class="card_body">
-        <p>【プロジェクト名】:<%= link_to project.main_title, project_path(project.id) %></p>
+        <p>【プロジェクト名】: <%= link_to project.main_title, project_path(project.id) %></p>
         <%= link_to image_tag(project.image), class: :img %>
         <p>【開始日】：<%= project.start_date %></p>
         <p>【終了日】：<%= project.finish_date %></p>
-        <p>by.<%= project.user.nickname %></p>
+        <p>by.<%= link_to project.user.nickname, user_path(project.user.id) %></p>
       </div>
     <% end %>
   </div>

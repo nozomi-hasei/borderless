@@ -12,21 +12,17 @@
   <body>
     <header class="header">
       <%= link_to 'Borderless', root_path, class: :title %>
-        <div class="header2">
-          <div class="user_in_out">
-            <!-- ログイン有無の条件分岐 -->
-            <% if user_signed_in? %>
-              <%= link_to current_user.nickname, user_path(current_user.id), method: :get %>
-              <%= link_to '【ログアウト】', destroy_user_session_path, method: :delete %>
-              <%= link_to "【New project】", new_project_path %>
-            <% else %>
-              <%= link_to '【ログイン】', new_user_session_path %>
-              <%= link_to '【新規登録】', new_user_registration_path %>
-            <% end %>
-          </div>
-          <div class="">
-            <a class="post" href="/tags/new">【New POST】</a>
-          </div>
+      <div class="header2">
+        <div class="user_in_out">
+          <!-- ログイン有無の条件分岐 -->
+          <% if user_signed_in? %>
+            <%= link_to current_user.nickname, user_path(current_user.id), method: :get %>
+            <%= link_to '【ログアウト】', destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to '【ログイン】', new_user_session_path %>
+            <%= link_to '【新規登録】', new_user_registration_path %>
+          <% end %>
+        </div>
       </div>
     </header>
     <%= yield %>
