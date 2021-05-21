@@ -20,14 +20,14 @@
         <span>投稿者 </span><%= tag.user.nickname %>
       </a>
       <li>
-      <%= link_to '詳細', tag_path(tag.id), method: :get %>
+      <%= link_to '【詳細】', tag_path(tag.id), method: :get %>
       </li>
       <% if user_signed_in? && current_user.id == tag.user_id%>
         <li>
-          <%= link_to '編集', edit_tag_path(tag.id), method: :get %>
+          <%= link_to '【編集】', edit_tag_path(tag.id), method: :get %>
         </li>
         <li>
-          <%= link_to '削除', tag_path(tag.id), method: :delete %>
+          <%= link_to '【削除】', tag_path(tag.id), method: :delete %>
         </li>
       <% end %>
     </div>
@@ -39,14 +39,11 @@
   <p>プロジェクト一覧</p>
   <div class="card">
     <% @projects.each do |project| %>
-      <p><%= project.main_title %></p>
+      <p>【プロジェクト名】<%= project.main_title %></p>
+      <p>【開始日】：<%= project.start_date %></p>
+      <p>【終了日】：<%= project.finish_date %></p>
       <%= link_to image_tag(project.image), class: :img %>
-      <p><%= project.start_date %></p>
-      <p><%= project.finish_date %></p>
-      <p><%= project.department %></p>
-      <p><%= project.category %></p>
-      <p><%= project.project_memo %></p>
-      <p><%= project.user.nickname %></p>
+      <p>by.<%= project.user.nickname %></p>
     <% end %>
   </div>
 </div>
