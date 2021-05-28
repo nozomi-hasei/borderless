@@ -7,4 +7,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: :show
+  resources :projects do
+    resources :comments, only: :create
+  end
 end

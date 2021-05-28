@@ -10,28 +10,24 @@
   </head>
 
   <body>
-    <header class="header">
-      <div class="title" href="/">Borderless</div>
-        <div class="header2">
-          <div class="user_in_out">
-            <!-- ログイン有無の条件分岐 -->
-            <% if user_signed_in? %>
-              <%= link_to current_user.nickname, edit_user_registration_path %>
-              <%= link_to 'My Tag', user_path(current_user.id), method: :get %>
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-            <% else %>
-              <%= link_to 'ログイン', new_user_session_path %>
-              <%= link_to '新規登録', new_user_registration_path %>
-            <% end %>
-          </div>
-          <div class="">
-            <a class="post" href="/tags/new">POST</a>
-          </div>
+    <header>
+      <div class="title">
+        <%= link_to 'Borderless', root_path %>
+        <div class="login">
+          <!-- ログイン有無の条件分岐 -->
+          <% if user_signed_in? %>
+            <%= link_to current_user.nickname, user_path(current_user.id), method: :get %>
+            <%= link_to '【ログアウト】', destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to '【ログイン】', new_user_session_path %>
+            <%= link_to '【新規登録】', new_user_registration_path %>
+          <% end %>
+        </div>
       </div>
     </header>
     <%= yield %>
-    <%= link_to 'back', :back %>
-    <footer class="footer">
+    <footer>
+      <%= link_to '【back】', :back %>
       <div class="footer2">
         Copyright Borderless 2021.
       </div>

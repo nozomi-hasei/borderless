@@ -1,40 +1,138 @@
-/* application.html.erb */
-.header {
-  background-color: beige;
-  height: 150px;
+/* リセットCSS */
+* {
+  box-sizing: border-box;
 }
 
-.header2 {
-  background-color: white;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+html,
+body,
+ul,
+li,
+h1,
+h2,
+p,
+div {
+  margin: 0;
+  padding: 0;
 }
+
+
+/* 主要css */
+body {
+  display: grid;
+  grid-template: 
+    "header " 400px
+    "main   " 1fr
+    "footer " 150px
+    / auto; 
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 300px;
+  max-height: 400px;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+  font-family: serif;
+  color:black;
+  z-index: 2;
+}
+
+p,
+label {
+  font: 1rem 'Fira Sans', sans-serif;
+  height: 50px;
+  font-family: serif;
+}
+
+input {
+  margin: .4rem;
+}
+
+/* ヘッダー*/
+header {
+  grid-area: header;
+  background-image: url("Rainbow-696783.jpg");
+  background-size: cover;
+  position: relative;
+}
+
+header::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.3);
+  }
 
 .title {
-  font-size: 45px;
-  background-color: white;
-
+  font-size: 50px;
+  color: black;
+  display: flex;  
+  justify-content: space-between;
 }
 
-
-.user-in-out {
-  background-color: white;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+.login {
+  font-size: 20px;
+  color: white;
+  margin: 20px;
+  z-index: 2;
 }
 
-.footer {
-  background-color: beige;
-  height: 70px;
+/* メイン*/
+main {
+  grid-area: main;
+}
+
+/* タグ */
+.tag {
+  background-color: rgb(244, 242, 239);
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
+}
+
+/* プロジェクト一覧 */
+.project-main {
+  background-color: rgb(244, 242, 239);
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  min-height: calc(100vh - 50px);
+}
+.card__img {
+  margin-bottom: 16px;
+  width: calc((100% - 50px) / 3);
+}
+
+.color {
+  margin: .4rem;
+}
+
+.back {
+  background-color: white;
+}
+
+/* ヘッダー*/
+footer {
+  grid-area: footer;
+  background-color: rgb(0,0,0,0.3);
 }
 
 .footer2 {
   font-size: 20px;
-  background-color: white;
   height: 30px;
   width: 100%;
 }
@@ -43,7 +141,3 @@
   background-color: white;
 }
 
-/* タグ */
-.tag {
-  background-color: rgb(244, 242, 239);
-}

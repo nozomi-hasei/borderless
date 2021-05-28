@@ -1,8 +1,10 @@
 class TagsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :find_params, only: [:edit, :show]
 
   def index
     @tags = Tag.includes(:user).order("created_at DESC")
+    @projects = Project.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -27,6 +29,7 @@ class TagsController < ApplicationController
   end
 
   def show
+    @tag = Tag.find(params[:id])
   end
 
   def search
@@ -35,7 +38,7 @@ class TagsController < ApplicationController
 
   private
   def tag_params
-    params.require(:tag).permit(:text_tag, :text_memo).merge(user_id: current_user.id)
+    params.require(:tag).permit(:text_tag, :text_memo, :color).merge(user_id: current_user.id)
   end
 
   def find_params

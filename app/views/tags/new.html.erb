@@ -4,7 +4,8 @@
     <%= form_with(model: @tag, local: true) do |form| %>
       <%= form.text_field :text_tag, placeholder: "tag" %>
       <%= form.text_field :text_memo, placeholder: "memo" %>
-      <%= form.submit "MAKE" %>
+      <p>【Color】<%= form.color_field :color %></p>
+      <%= form.submit "作成する" %>
     <% end %>
   </div>
 </div>

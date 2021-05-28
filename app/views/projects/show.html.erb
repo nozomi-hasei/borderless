@@ -1,0 +1,57 @@
+<!-- プロジェクト詳細 -->
+<div class="card_wrapper">
+  <p>【プロジェクト名】: <%= link_to "#{@project.main_title}", projects_path(@project.id) %></p>
+  <div class="card">
+    <%= link_to image_tag(@project.image), class: :img %>
+    <div>
+      <p>【開始日】: <%= link_to "#{@project.start_date}", projects_path(@project.id) %></p>
+      <p>【終了日】: <%= link_to "#{@project.finish_date}",projects_path(@project.id) %></p>
+      <ul>
+        <li>
+          <p>【担当部署】: <%= link_to "#{@project.department}", projects_path(@project.id) %></p>
+        </li>
+        <li>
+          <p>【カテゴリー】: <%= link_to "#{@project.category}", projects_path(@project.id) %></p>
+        </li>
+        <li>
+          <p>【内容】: <%= link_to "#{@project.project_memo}", projects_path(@project.id) %></p>
+        </li>
+        <li>
+          <%= link_to "by.#{@project.user.nickname}", user_path(@project.user) %>
+          <% if user_signed_in? && current_user.id == @project.user_id%>
+            <li>
+              <%= link_to '【編集】', edit_project_path(@project.id), method: :get %>
+            </li>
+            <li>
+              <%= link_to '【削除】', project_path(@project.id), method: :delete %>
+            </li>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- コメント投稿欄 -->
+  <div class="prototype__comments">
+    <% if current_user %>
+      <%= form_with(model: [@project,@comment],local: true) do |f| %>
+        <div class="field">
+          <%= f.label :text_comment, "<コメント欄>" %><br />
+          <%= f.text_field :text_comment %>
+        </div>
+        <div class="actions">
+          <%= f.submit "送信する", class: :form__btn  %>
+        </div>
+      <% end %> 
+    <% end %>
+    <% if @comments%>
+      <ul class="comments_lists">
+        <% @comments.each do |comment| %>
+        <li class="comments_list">
+          <%= comment.text_comment %>
+          <p>by.<%= link_to comment.user.nickname, user_path(comment.user) %>
+        </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

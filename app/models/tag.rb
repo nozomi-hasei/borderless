@@ -1,5 +1,5 @@
 class Tag < ApplicationRecord
-  validates :text_tag, :text_memo, presence: true
+  validates :text_tag, :text_memo, :color, presence: true
   belongs_to :user
 
   def self.search(search)

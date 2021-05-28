@@ -30,19 +30,20 @@
 <!-- 案件チャット機能 -->
 ## projects テーブル
 
-| Column      | Type        | Options    |
-| ----------  | ----------  | ---------- |
-| main_title  | string      | null:false |
-| start_date  | string      | null:false |
-| finish_date | string      | null:false |
-| department  | string      | null:false |
-| category    | string      | null:false |
-| image       | null        |            |
-| user        | references  |            |
+| Column       | Type       | Options    |
+| ------------ | ---------- | ---------- |
+| main_title   | string     | null:false |
+| start_date   | string     | null:false |
+| finish_date  | string     | null:false |
+| department   | string     | null:false |
+| category     | string     | null:false |
+| project_memo | string     | null:false |
+| image        | null       |            |
+| user         | references |            |
 
 ### Association
 
-- belongs_to :users
+- belongs_to :user
 - has_many :comments
 
 
@@ -50,7 +51,7 @@
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| text_comment | string     | null:false                     |
+| text_comment | text       | null:false                     |
 | user         | references | null: false, foreign_key: true |
 | project      | references | null: false, foreign_key: true |
 
