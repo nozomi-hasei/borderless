@@ -93,7 +93,7 @@ main {
 
 /* タグ */
 .tag {
-  background-color: rgb(244, 242, 239);
+  background-color: rgba(244, 242, 239);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
