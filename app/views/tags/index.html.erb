@@ -1,32 +1,33 @@
 <div class="main">
   <!--検索欄 -->
-  <div class="">
+  <div class="search">
     <%= form_with(url: search_tags_path, local: true, method: :get, class: "") do |form| %>
       <%= form.text_field :keyword, placeholder: "タグを検索する", class: "" %>
-      <%= form.submit "検索", class: "" %>
+      <%= form.submit "検索" %>
     <% end %>
   </div>
   
   <!-- 投稿タグ一覧 -->
-  <div class="tag-main">
-    <p><タグ一覧></p>
-    <div class="tag-sub">
-      <% @tags.each do |tag| %>
-        <div style="background-color:<%= tag.color %>">
-          <p>＃<%= link_to tag.text_tag, tag_path(tag.id) %></p>
-        </div>
-        <p>by.<%= link_to tag.user.nickname, user_path(tag.user.id), method: :get %></p>
-      <% end %>
-    </div>
+  <div class="tag_wrapper">
+    <p class="tag_name" ><タグ一覧></p>
+    <div class="tag">
+    <% @tags.each do |tag| %>
+      <div style="background-color:<%= tag.color %>">
+        <p class="tag1">  ＃<%= link_to tag.text_tag, tag_path(tag.id) %></p>
+        <p class="tag1">【Memo】<%= link_to tag.text_memo, tag_path(tag.id) %></p>
+        <p class="tag1">by.<%= link_to tag.user.nickname, user_path(tag.user.id), method: :get %></p>
+      </div>
+    <% end %>
   </div>
   
   <!-- プロジェクト一覧 -->
-  <div class="project-main">
-    <p><プロジェクト一覧></p>
+  <div class="project">
+    <p class="project_name"><プロジェクト一覧></p>
     <div class="card">
       <% @projects.each do |project| %>
         <div class="card_body">
           <p>【プロジェクト名】: <%= link_to project.main_title, project_path(project.id) %></p>
+          <p>【カテゴリー】: <%= link_to project.category, project_path(project.id) %></p>
           <%= link_to image_tag(project.image), class: :img %>
           <p>【開始日】：<%= project.start_date %></p>
           <p>【終了日】：<%= project.finish_date %></p>
