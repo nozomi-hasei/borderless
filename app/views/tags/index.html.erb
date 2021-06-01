@@ -12,7 +12,7 @@
     <p><タグ一覧></p>
     <div class="tag-sub">
       <% @tags.each do |tag| %>
-        <div style="background-color:<%= tag.color %>">
+        <%= tag.color %>
           <p>＃<%= link_to tag.text_tag, tag_path(tag.id) %></p>
         </div>
         <p>by.<%= link_to tag.user.nickname, user_path(tag.user.id), method: :get %></p>
