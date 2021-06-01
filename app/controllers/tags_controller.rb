@@ -12,7 +12,7 @@ class TagsController < ApplicationController
   end
 
   def create
-    Tag.create(tag_params)
+    @tag = Tag.create(tag_params)
   end
 
   def destroy
