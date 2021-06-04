@@ -19,6 +19,7 @@ div {
 /* 主要css */
 div {
   margin: 0px 0px 30px;
+  border-radius: 50px;
 }
 
 body {
@@ -52,6 +53,7 @@ label {
   font: 1rem 'Fira Sans', sans-serif;
   height: 30px;
   font-family: serif;
+  text-align: center;
 }
 
 input {
@@ -153,7 +155,6 @@ form {
   top: 100%;
   left: 0;
   border: none;
-
 }
 
 

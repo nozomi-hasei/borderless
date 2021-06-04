@@ -1,8 +1,11 @@
-<div class="">
-  <div style="background-color:<%= @tag.color %>">
-    <p>＃<%= @tag.text_tag %></p>
-    <p>【Memo】<%= @tag.text_memo %></p>
-    <p><%= @tag.updated_at %></p>
-    <p>by.<%= @tag.user.nickname %></p>
+<div class="tag_wrapper">
+  <p class="tag_name" ><タグ一覧></p>
+  <div class="tag">
+    <div style="background-color:<%= @tag.color %>">
+      <p class="tag1">＃<%= @tag.text_tag %></p>
+      <p class="tag1">【Memo】<%= @tag.text_memo %></p>
+      <p><%= @tag.updated_at %></p>
+      <p class="tag1">by.<%= @tag.user.nickname %></p>
+    </div>
   </div>
 </div>

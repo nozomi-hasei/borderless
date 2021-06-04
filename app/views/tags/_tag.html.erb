@@ -1,0 +1,12 @@
+<!-- 投稿タグ一覧 -->
+<div class="tag_wrapper">
+  <p class="tag_name" ><タグ一覧></p>
+  <div class="tag">
+  <% @tags.each do |tag| %>
+    <div style="background-color:<%= tag.color %>">
+      <p class="tag1">  ＃<%= link_to tag.text_tag, tag_path(tag.id) %></p>
+      <p class="tag1">【Memo】<%= link_to tag.text_memo, tag_path(tag.id) %></p>
+      <p class="tag1">by.<%= link_to tag.user.nickname, user_path(tag.user.id), method: :get %></p>
+    </div>
+  <% end %>
+</div>
