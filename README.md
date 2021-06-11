@@ -23,6 +23,7 @@
 | ---------- | ---------- | ------------------------------|
 | text_tag   | string     | null:false                    |
 | text_memo  | string     | null:false                    |
+| color      | string     | null:false                    |
 | user       | references | null:false, foreign_key: true |
 ### Association
 
