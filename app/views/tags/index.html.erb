@@ -9,20 +9,21 @@
   
   <!-- 投稿タグ一覧 -->
   <div class="tag_wrapper">
-    <p class="tag_name" ><タグ一覧></p>
+    <p class="tag_name" ><新着タグ一覧></p>
     <div class="tag">
-    <% @tags.each do |tag| %>
-      <div style="background-color:<%= tag.color %>">
-        <p class="tag1">  ＃<%= link_to tag.text_tag, tag_path(tag.id) %></p>
-        <p class="tag1">【Memo】<%= link_to tag.text_memo, tag_path(tag.id) %></p>
-        <p class="tag1">by.<%= link_to tag.user.nickname, user_path(tag.user.id), method: :get %></p>
-      </div>
-    <% end %>
+      <% @tags.each do |tag| %>
+        <div class="tag-card" style="background-color:<%= tag.color %>">
+          <p class="tag1-font">  ＃<%= link_to tag.text_tag, tag_path(tag.id) %></p>
+          <p class="tag1"><%= tag.text_memo %></p>
+          <p class="tag1">by.<%= link_to tag.user.nickname, user_path(tag.user.id), method: :get %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
   
   <!-- プロジェクト一覧 -->
   <div class="project">
-    <p class="project_name"><プロジェクト一覧></p>
+    <p class="project_name"><新着プロジェクト一覧></p>
     <div class="card">
       <% @projects.each do |project| %>
         <div class="card_body">

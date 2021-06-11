@@ -19,13 +19,12 @@ div {
 /* 主要css */
 div {
   margin: 0px 0px 30px;
-  border-radius: 50px;
 }
 
 body {
   display: grid;
   grid-template: 
-    "header " 400px
+    "header " 700px
     "main   " 1fr
     "footer " 100px
     / auto; 
@@ -46,12 +45,13 @@ a {
   font-family: serif;
   color:black;
   z-index: 2;
+  margin-left: 20px;
 }
 
 p,
 label {
   font: 1rem 'Fira Sans', sans-serif;
-  height: 30px;
+  height: auto;
   font-family: serif;
   text-align: center;
 }
@@ -63,7 +63,7 @@ input {
 /* ヘッダー*/
 header {
   grid-area: header;
-  background-image: url("Rainbow-696783.jpg");
+  background-image: url("Artist-brush-on-canvas-959408.jpg");
   background-size: cover;
   position: relative;
 }
@@ -76,7 +76,7 @@ header::before{
   bottom: 0;
   left: 0;
   background-color: rgba(0,0,0,0.3);
-  background: linear-gradient(rgba(250,250,250,0)0, #fff 85%);
+  background: linear-gradient(rgba(250,250,250,0)0, #fff 100%);
   }
 
 .title {
@@ -120,7 +120,7 @@ form {
 .tag_wrapper {
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .tag_name {
@@ -128,10 +128,19 @@ form {
   margin: 0px 0px 30px;
 }
 
+.tag1-font {
+  font-size: 30px;
+}
+
 .tag {  
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.tag-card {
+  border: double 5px black;
+  box-shadow: 5px 5px 0 rgb(210, 210, 210);
 }
 
 .tag_1 {
@@ -145,16 +154,17 @@ form {
   box-sizing: border-box;
   padding: 20px;
   margin: 0 0 0 -20px;
-  width: calc(100% + 20px);
   font-size: 22px;
   color:black;
 }
+
+
+
 .tag:before {
   position: absolute;
   content: '';
   top: 100%;
   left: 0;
-  border: none;
 }
 
 

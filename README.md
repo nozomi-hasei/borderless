@@ -13,6 +13,8 @@
 ### Association
 
 - has_many :tags
+- has_many :projects
+- has_many :comments
 
 <!-- タグ付け機能 -->
 ## tags　テーブル
