@@ -30,9 +30,6 @@ body {
     / auto; 
 }
 
-li {
-  list-style: none;
-}
 
 img {
   max-width: 300px;
@@ -42,17 +39,15 @@ img {
 
 a {
   text-decoration: none;
-  font-family: serif;
   color:black;
   z-index: 2;
-  margin-left: 20px;
+  margin: 20px;
 }
 
 p,
 label {
   font: 1rem 'Fira Sans', sans-serif;
   height: auto;
-  font-family: serif;
   text-align: center;
 }
 
@@ -80,12 +75,14 @@ header::before{
   }
 
 .title {
-  font-size: 60px;
+  font-family: 'Yellowtail', cursive;
+  font-size: 80px;
   color: black;
   text-shadow: 1px 1px 1px rgb(20, 20, 20);
   display: flex;  
   justify-content: space-between;
 }
+
 
 .sub {
   position: absolute;
@@ -93,7 +90,12 @@ header::before{
   left:30%;
   font-size: 25px;
   color: black;
+  font-style: italic;
+}
 
+.sub:hover {
+  padding-left: 0.1em;
+  padding-right: 0.1em;
 }
 
 .login {
@@ -215,3 +217,20 @@ footer {
   background-color: white;
 }
 
+ul li {
+  font-size: 20px;
+  margin: 10px;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  border-bottom: solid 3px #e1ff00;
+  border-left: solid 3px #e1ff00;
+  color: black;
+  transition: .4s;
+}
+
+ul li:hover {
+  padding-left: 0.7em;
+  padding-right: 0.3em;
+}

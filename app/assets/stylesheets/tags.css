@@ -1,0 +1,30 @@
+h3 {
+  font-size: 25px;
+  position: relative;
+  top: 20px;
+  left: 40px;
+
+}
+
+cp_iptxt {
+	width: 80%;
+	margin: 40px 3%;
+}
+.cp_iptxt input[type='text'] {
+  margin: 40px;
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+  height: 60px;
+	width: 40%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #ffffff;
+	box-shadow: 1px 1px 2px 0 #707070 inset;
+	border-radius: 4px;
+}
+.ef input[type='text']:focus {
+	outline: none;
+	box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+}

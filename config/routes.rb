@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'tags#index'
+  root to: 'tags#_landing'
   resources :tags do
     collection do
       get 'search'

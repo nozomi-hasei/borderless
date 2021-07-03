@@ -1,11 +1,9 @@
-<div class="">
-  <div class="">
-    <h3>タグを作成する</h3>
-    <%= form_with(model: @tag, local: true) do |form| %>
-      <%= form.text_field :text_tag, placeholder: "tag" %>
-      <%= form.text_field :text_memo, placeholder: "memo" %>
-      <p>【Color】<%= form.color_field :color %></p>
-      <%= form.submit "作成する" %>
-    <% end %>
-  </div>
+<div class="cp_iptxt">
+  <h3>タグを作成する</h3>
+  <%= form_with(model: @tag, local: true) do |form| %>
+    <%= form.text_field :text_tag, placeholder: "tag" %>
+    <%= form.text_field :text_memo, placeholder: "memo" %>
+    <p>【Color】<%= form.color_field :color %></p>
+    <%= form.submit "作成する" %>
+  <% end %>
 </div>
