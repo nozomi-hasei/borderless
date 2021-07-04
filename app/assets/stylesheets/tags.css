@@ -10,7 +10,7 @@ cp_iptxt {
 	width: 80%;
 	margin: 40px 3%;
 }
-.cp_iptxt input[type='text'] {
+.cp_iptxt input [type='text'] {
   margin: 40px;
 	font: 15px/24px sans-serif;
 	box-sizing: border-box;
