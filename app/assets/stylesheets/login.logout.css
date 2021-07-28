@@ -1,0 +1,36 @@
+h2 {
+  text-align: center;
+  font-size: 30px;
+}
+
+input {
+  height: 50px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.login_email {
+  height: 80px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.login_password {
+  height: 80px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.login_check {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.actions {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.log_link {
+  margin: 0 auto;
+}

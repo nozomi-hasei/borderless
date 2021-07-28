@@ -11,17 +11,20 @@
   <body>
     <header>
       <div class="title">
-        <%= link_to 'Borderless', root_path %>
+      　<img id="borderless" src="/assets/Borderless.jpg" alt="">
+        <%= link_to ' Borderless', tags_path %>
         <p class="sub">自分の好きなこと、経験が誰かのためになる</p>
         <div class="login">
-          <!-- ログイン有無の条件分岐 -->
-          <% if user_signed_in? %>
-            <%= link_to current_user.nickname, user_path(current_user.id), method: :get %>
-            <%= link_to '【ログアウト】', destroy_user_session_path, method: :delete %>
-          <% else %>
-            <%= link_to '【ログイン】', new_user_session_path %>
-            <%= link_to '【新規登録】', new_user_registration_path %>
-          <% end %>
+          <div class="login_font">
+            <!-- ログイン有無の条件分岐 -->
+            <% if user_signed_in? %>
+              <%= link_to current_user.nickname, user_path(current_user.id), method: :get %>
+              <%= link_to '【ログアウト】', destroy_user_session_path, method: :delete %>
+            <% else %>
+              <%= link_to '【ログイン】', new_user_session_path %>
+              <%= link_to '【新規登録】', new_user_registration_path %>
+            <% end %>
+          </div>
         </div>
       </div>
     </header>

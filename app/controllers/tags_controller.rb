@@ -3,7 +3,7 @@ class TagsController < ApplicationController
   before_action :find_params, only: [:edit, :show]
 
   def index
-    @tags = Tag.includes(:user).order("created_at DESC")
+    @tags = Tag.includes(:user).order("created_at DESC").limit(5)
     @projects = Project.includes(:user).order("created_at DESC")
   end
 

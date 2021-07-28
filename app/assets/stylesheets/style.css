@@ -24,12 +24,15 @@ div {
 body {
   display: grid;
   grid-template: 
-    "header " 700px
+    "header " 1260px
     "main   " 1fr
     "footer " 100px
     / auto; 
 }
 
+#landing {
+  justify-content: space-between;
+}
 
 img {
   max-width: 300px;
@@ -37,11 +40,17 @@ img {
   vertical-align: bottom;
 }
 
+#borderless {
+  height : 85px;
+  margin-top: 45px;
+}
+
 a {
   text-decoration: none;
-  color:black;
+  color: white;
   z-index: 2;
   margin: 20px;
+  margin-left: 10px;
 }
 
 p,
@@ -58,26 +67,18 @@ input {
 /* ヘッダー*/
 header {
   grid-area: header;
-  background-image: url("Artist-brush-on-canvas-959408.jpg");
+  background-image: url("7AB4447D-7227-4B79-AC4F-9462D34AD054.JPG");
   background-size: cover;
   position: relative;
+  max-width: 100%;
+  height: auto;
 }
 
-header::before{
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0,0,0,0.3);
-  background: linear-gradient(rgba(250,250,250,0)0, #fff 100%);
-  }
+
 
 .title {
-  font-family: 'Yellowtail', cursive;
   font-size: 80px;
-  color: black;
+  color: white;
   text-shadow: 1px 1px 1px rgb(20, 20, 20);
   display: flex;  
   justify-content: space-between;
@@ -85,24 +86,28 @@ header::before{
 
 
 .sub {
-  position: absolute;
-  top:45%;
-  left:30%;
-  font-size: 25px;
-  color: black;
+  position:relative;
+  margin: 0 auto;
+  top: 300px;
+  width: 800px;
+  height: 50px;
+  font-size: 35px;
+  color:white;
   font-style: italic;
-}
-
-.sub:hover {
-  padding-left: 0.1em;
-  padding-right: 0.1em;
+  text-align: center;
 }
 
 .login {
+  height: 40px;
+  width: 500px;
   font-size: 20px;
   color: white;
   margin: 20px;
   z-index: 2;
+}
+
+.login_font {
+  font-size:30px;
 }
 
 /* メイン*/
@@ -169,6 +174,10 @@ form {
   left: 0;
 }
 
+.tag-card:hover {
+  opacity: 0.3;
+  color:rgb(233, 233, 233);
+}
 
 /* プロジェクト一覧 */
 .project {
@@ -192,6 +201,12 @@ form {
   margin-bottom: 16px;
   width: calc((100% - 50px) / 3);
 }
+
+.card_body:hover {
+  opacity: 0.3;
+  color:rgb(233, 233, 233);
+}
+
 
 .color {
   margin: .4rem;
@@ -219,7 +234,7 @@ footer {
 
 ul li {
   font-size: 20px;
-  margin: 10px;
+  margin: 115px;
   display: inline-block;
   font-weight: bold;
   padding: 0.25em 0.5em;
